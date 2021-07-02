@@ -71,6 +71,10 @@ const config = {
     },
     coverage: {
       url: 'http://127.0.0.1:8555' // Coverage launches its own ganache-cli client
+    },
+    matic: {
+      url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [process.env.privateKey]
     }
   },
   etherscan: {

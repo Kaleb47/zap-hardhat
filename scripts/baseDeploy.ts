@@ -115,9 +115,7 @@ async function main() {
   await Coordinator.updateAllDependencies({ gasLimit: '600000', gasPrice: "20000000000" });
   
   // Approve the amount of Zap
-  await zapToken.allocate(owner.address, tokensForOwner)
-  await zapToken.allocate(broker.address, tokensForSubscriber)
-  await zapToken.connect(broker).approve(Bondage.address, approveTokens)
+ 
   
   const subscriberFactory = await ethers.getContractFactory(
     'TestClient'

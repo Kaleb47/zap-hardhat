@@ -83,6 +83,38 @@ const config = {
   }
 };
 
+require("@nomiclabs/hardhat-ethers");
+const fs = require('fs');
+module.exports = {
+  defaultNetwork: "matic",
+  networks: {
+    hardhat: {
+    },
+    matic: {
+      url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [process.env.privateKey]
+    }
+  },
+  solidity: {
+    version: "0.7.0",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+  paths: {
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./artifacts"
+  },
+  mocha: {
+    timeout: 20000
+  }
+}
+
 // read BSC gas price and assign the gas reporter and hardhat network's gas price to it
 try {
   let data = fs.readFileSync("./output/bscGas.txt", 'utf8')

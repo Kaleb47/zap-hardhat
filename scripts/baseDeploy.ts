@@ -170,8 +170,7 @@ async function main() {
   const DotFactoryFactory = await dotFactoryFactory.deploy(Coordinator.address, generictoken.address);
   await DotFactoryFactory.deployed();
   console.log(`DotFactoryFactory address is ${DotFactoryFactory.address}`)
-  
-
+} 
 
 main()
   .then(() =>

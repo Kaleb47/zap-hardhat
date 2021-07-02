@@ -86,7 +86,7 @@ const config = {
 require("@nomiclabs/hardhat-ethers");
 
 module.exports = {
-  defaultNetwork: "matic",
+
   networks: {
     hardhat: {
     },

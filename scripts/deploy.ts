@@ -4,8 +4,6 @@ const hre = require("hardhat")
 
 const params = ["param1", "param2"];
 
-
-
 const tokensForOwner = ethers.BigNumber.from("1500000000000000000000000000000");
 const tokensForSubscriber = ethers.BigNumber.from("50000000000000000000000000000");
 const approveTokens = ethers.BigNumber.from("1000000000000000000000000000000");
@@ -75,8 +73,6 @@ async function main() {
   await Coordinator.updateContract('CURRENT_COST', CurrentCost.address, { gasLimit: '150000', gasPrice: "20000000000" });
   await Coordinator.updateContract('DISPATCH', Dispatch.address, { gasLimit: '150000', gasPrice: "20000000000" });
 
-
-
   await Coordinator.updateContract('BONDAGE', Bondage.address, { gasLimit: '150000', gasPrice: "20000000000" });
   console.log('finished updates')
   await Coordinator.updateAllDependencies({ gasLimit: '600000', gasPrice: "20000000000" });
@@ -84,9 +80,6 @@ async function main() {
   await hre.run('faucet')
   //await hre.run('initiateProvider')
   //await hre.run('initiateProviderCurve')
-
-  // await Registry.connect(OracleSigner).initiateProvider(publicKey, title);
-  // await Registry.connect(OracleSigner).initiateProviderCurve(specifier, piecewiseFunction, zeroAddress);
 
   // Approve the amount of Zap
   await zapToken.allocate(owner.address, tokensForOwner)
@@ -136,7 +129,6 @@ async function main() {
   await generictoken.deployed();
   await dotFactoryFactory.deploy(Coordinator.address, generictoken.address);
   
-
   /**
    * MINERS
    */
